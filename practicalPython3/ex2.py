@@ -1,5 +1,5 @@
-from practical3.graph_io import *
-from practical3.graph import *
+from practicalPython3.graph_io import *
+from practicalPython3.graph import *
 with open('examplegraph.gr') as f:
     G = load_graph(f)
 print(G)

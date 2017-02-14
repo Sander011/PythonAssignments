@@ -1,4 +1,4 @@
-from practical3.graph import *
+from practicalPython3.graph import *
 
 def creategraphpath(n):
     G = Graph(False, n)

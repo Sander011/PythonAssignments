@@ -1,5 +1,5 @@
-from practical3.graph import *
-from practical3.graph_io import *
+from practicalPython3.graph import *
+from practicalPython3.graph_io import *
 
 def opengraph(name):
     with open(name) as file:
