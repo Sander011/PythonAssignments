@@ -1,7 +1,8 @@
 from collections import deque
-from practical3.ex1 import *
-from practical3.graph import *
+
 from practical3.graph_io import *
+
+from practical3.ex1 import *
 
 
 def bfs(G, v):
