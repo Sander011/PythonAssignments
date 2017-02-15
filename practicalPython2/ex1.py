@@ -1,6 +1,6 @@
 from functools import reduce
 
-from practical2.perm import *
+from practicalPython2.perm import *
 p = [1,2,7,4,6,0,9,5,8,3]
 # print(p)
 # q = [2,3,7,6,1,0,9,5,8,4]

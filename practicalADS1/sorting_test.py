@@ -1,7 +1,7 @@
 import unittest
 import random
 
-from practicalADS.sorting import InsertionSorter, QuickSorter
+from practicalADS1.sorting import InsertionSorter, QuickSorter
 
 
 def random_list(sample_size):
