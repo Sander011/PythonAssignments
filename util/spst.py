@@ -1,5 +1,5 @@
-import graph
-from graph_io import load_graph, write_dot # graphIO import graphs.py, so we do not need to import it here.
+from util import graph
+from util.graph_io import load_graph, write_dot # graphIO import graphs.py, so we do not need to import it here.
 import os
 import math
 
@@ -66,6 +66,16 @@ def bellman_ford_directed(graph, start):
     start.dist = 0
 
     # Insert your code here.
+    for i in range(1, len(graph.vertices)-1):
+        for e in graph.edges:
+            if e.tail.dist + e.weight < e.head.dist:
+                e.head.dist = e.tail.dist + e.weight
+                e.head.in_edge = e.tail
+
+    for e in graph.edges:
+        if e.tail.dist + e.weight < e.head.dist:
+            print("Negative cycle :(")
+
 
 
 def dijkstra_undirected(graph, start):
@@ -105,7 +115,28 @@ def dijkstra_directed(graph, start):
 
     start.dist = 0
 
+    first = None
     # Insert your code here.
+    for v in graph.vertices:
+        for e in v.incidence:
+            if e.other_end(v) == start:
+                first = v
+
+    queue = graph.vertices
+    while queue:
+        smallestvertex = queue[0]
+        for v in queue:
+            if v.dist < smallestvertex.dist:
+                smallestvertex = v
+
+        queue.remove(smallestvertex)
+        for e in smallestvertex.incidence:
+            other = e.other_end(smallestvertex)
+            newdistance = smallestvertex.dist + e.weight
+            if newdistance < other.dist and e.tail == smallestvertex:
+                other.dist = newdistance
+                other.in_edge = smallestvertex
+
 
 ##############################################################################
 #
